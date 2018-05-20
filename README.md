@@ -37,7 +37,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-	implementation 'com.github.tinhuit89:OSTKitWrapperSDK:1.0.2'
+	implementation 'com.github.ost-sdk:ostkit-android:0.0.1'
 }
 ```
 
