@@ -1,0 +1,13 @@
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+/.idea/*
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+/demo-app
+/demo-app/src/main/java/capo/mobile/sdk/common/*
+demo-app/*
