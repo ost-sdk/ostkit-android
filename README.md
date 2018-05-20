@@ -100,8 +100,7 @@ ostWrapperSdk.getUserWrapper().getListUser(nextPage, new VolleyRequestCallback()
 ```
 - createUser
 - editUser
-- get
-- ListUser
+- getListUser
 ```
 
 ### TransactionTypeWrapper
