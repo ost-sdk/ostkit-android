@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <drawable name="drawable_red">#ee3547</drawable>
+    <drawable name="drawable_blue">#0066FF</drawable>
+    <drawable name="drawable_white">#ffffff</drawable>
+    <drawable name="drawable_blue_fous">#00aeef</drawable>
+    <drawable name="btn_focus_color">#56c1ef</drawable>
+    <drawable name="btn_press_color">#0091d0</drawable>
+    <drawable name="darkgreylight">#666666</drawable>
+    <drawable name="pink">#ff9292</drawable>
+    <drawable name="red">#7f00</drawable>
+    <drawable name="blue">#770000ff</drawable>
+    <drawable name="green">#7700ff00</drawable>
+    <drawable name="yellow">#77ffff00</drawable>
+    <drawable name="screen_background_black">#ff000000</drawable>
+    <drawable name="translucent_background">#e0000000</drawable>
+    <drawable name="transparent_background">#50FF0000</drawable>
+    <drawable name="transparent">#00000000</drawable>
+    <drawable name="white">#FFFFFF</drawable>
+    <drawable name="btn_selected">#444444</drawable>
+    <drawable name="selected_radio">#272c30</drawable>
+    <drawable name="gray">#BEBEBE</drawable>
+    <drawable name="stand_five_color">#509806</drawable>
+
+    <drawable name="tab_text_selected">#0B6540</drawable>
+
+    <drawable name="tab_text_unselected">#AFAFAF</drawable>
+
+    <drawable name="bg_app_green">#0BC4AC</drawable>
+
+
+    <color name="shadow">#7d120000</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_haft">#50ffffff</color>
+    <color name="transparent_haftaa">#aaffffff</color>
+    <color name="transparent_hafta5">#b0ffffff</color>
+    <color name="transparent_haft2">#aa000000</color>
+    <color name="transparent_haft1">#aa0000</color>
+    <color name="platinum">#E5E4E2</color>
+    <color name="button_view">#EF4136</color>
+    <color name="white">#ffffff</color>
+    <color name="white_light">#DDDDDD</color>
+    <color name="white_dark">#CCCCCC</color>
+    <color name="gray">#BEBEBE</color>
+    <color name="black">#000000</color>
+    <color name="text_balck">#2f3237</color>
+    <color name="dark_gray">#666666</color>
+    <color name="dark_gray_light">#888888</color>
+    <color name="light_gray">#d3d3d3</color>
+    <color name="green_yellow">#CCCE00</color>
+    <color name="menu_selected">#444444</color>
+    <color name="green">#44ba33</color>
+    <color name="red">#ee3547</color>
+    <color name="blue">#469ccf</color>
+    <color name="dark_blue">#003399</color>
+    <color name="light_blue">#66CCFF</color>
+    <drawable name="selected_cat">#ffffff</drawable>
+    <drawable name="unselected_cat">#ff6222</drawable>
+    <color name="bg_menu_slide">#00adef</color>
+    <color name="bg_bar_top">#d41212</color>
+    <color name="bg_bar_popup">#f3f3f3</color>
+    <color name="bg_tab_blue">#00aeef</color>
+    <color name="bg_menu">#014d71</color>
+    <color name="bg_menu_one">#1a6093</color>
+    <color name="bg_menu_two">#00adef</color>
+    <color name="orange">#f0931c</color>
+    <color name="bg_light_blue">#EBF5FF</color>
+    <color name="bg_tab_chat">#4a4a4a</color>
+    <color name="bg_app">#201f2c</color>
+    <color name="bg_gradian">#7d120000</color>
+
+    <color name="bg_content_cart">#f3f4f6</color>
+
+    <color name="bg_btn_gray">#eeeeee</color>
+    <color name="stand_five_color">#63ad57</color>
+    <color name="bg_bar_five">#f2f2f2</color>
+
+    <color name="bg_cached_detail">#e5e5e5</color>
+
+    <color name="bg_product_item">#f6f4f8</color>
+
+
+    <color name="color_title_link">#3a7fb4</color>
+    <color name="color_title_link_visited">#6d59a3</color>
+    <color name="color_address">#777</color>
+    <color name="color_decription">#666</color>
+    <color name="color_url_link">#bd4b2b</color>
+
+    <!--V2-->
+    <color name="bg_menu_right">#ebebeb</color>
+    <color name="bg_bar_menu_right">#662288</color>
+    <color name="text_black_app">#494949</color>
+    <color name="text_orange_app">#F75F00</color>
+    <color name="text_blue_app">#662288</color>
+    <!--<color name="bg_bar_top_v2">@color/gray</color>-->
+
+    <color name="bg_bar_top_v2">#622183</color>
+
+    <color name="text_hint_search">#b391c4</color>
+    <color name="bg_call">#ff7700</color>
+    <color name="bg_map_circle">#8044ba33</color>
+    <color name="blue_facebook">#3b5998</color>
+
+    <color name="gray_tran">#40BEBEBE</color>
+
+    <color name="purple">#662288</color>
+
+    <color name="feed_bg">#d3d6db</color>
+    <color name="feed_item_bg">#ffffff</color>
+    <color name="feed_item_border">#c2c3c8</color>
+    <color name="link">#0a80d1</color>
+    <color name="timestamp">#a0a3a7</color>
+
+    <color name="bg_app_green">#0BC4AC</color>
+
+
+    <color name="tab_text_selected_color">#03A9F4</color>
+    <color name="tab_text_unselected_color">#000000</color>
+
+    <color name="color_text_customer_hint">#8F8E94</color>
+    <color name="editext_background_tint">#E0E0E0</color>
+
+    <color name="primary_500">#263238</color>
+    <!--Indigo 700-->
+    <color name="primary_700">#263238</color>
+
+
+    <!---->
+    <color name="indicator_unselected">#4D000000</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+
+    <color name="overlay_popup_glus">#80000000</color>
+
+    <color name="notifi_unread">#59D8D8D8</color>
+
+    <color name="bg_listing_home">#F6F7F9</color>
+
+    <color name="md_red_A700">#D50000</color>
+
+    <color name="md_pink_A100">#FF80AB</color>
+
+    <color name="md_purple_800">#6A1B9A</color>
+
+    <color name="md_indigo_800">#283593</color>
+
+    <color name="md_blue_400">#42A5F5</color>
+
+    <color name="md_light_blue_A100">#80D8FF</color>
+
+    <color name="md_cyan_800">#00838F</color>
+
+    <color name="md_teal_800">#00695C</color>
+
+    <color name="md_green_A400">#00E676</color>
+
+    <color name="md_light_green_A200">#B2FF59</color>
+
+    <color name="md_lime_A200">#EEFF41</color>
+
+    <color name="md_yellow_900">#F57F17</color>
+
+    <color name="md_brown_800">#4E342E</color>
+
+    <drawable name="focus_click_bg">#80DFCBCB</drawable>
+
+    <!--100% — FF
+95% — F2
+90% — E6
+85% — D9
+80% — CC
+75% — BF
+70% — B3
+65% — A6
+60% — 99
+55% — 8C
+50% — 80
+45% — 73
+40% — 66
+35% — 59
+30% — 4D
+25% — 40
+20% — 33
+15% — 26
+10% — 1A
+5% — 0D
+0% — 00-->
+</resources>
