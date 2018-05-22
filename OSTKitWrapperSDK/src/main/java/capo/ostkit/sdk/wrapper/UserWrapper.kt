@@ -1,6 +1,8 @@
-package capo.ostkit.sdk.wrapper;
+package capo.ostkit.sdk.wrapper
 
 import android.content.Context
+import android.util.Log
+import capo.ostkit.sdk.common.Constants
 import capo.ostkit.sdk.service.VolleyRequestCallback
 import capo.ostkit.sdk.utils.Utilities
 
@@ -26,14 +28,14 @@ class UserWrapper(_context: Context, _apiKey: String, _secret: String, _baseUrl:
     * awards to the user to spend within the economy.
     * */
     fun createUser(name: String, callBack: VolleyRequestCallback) {
-        this.endPoint = OstWrapperSdk.USER_CREATE
+        this.endPoint = Constants.USER_CREATE
         val mRequestTimestamp = Utilities.getTimestamp()
         params.put("name", name)
         params.put("request_timestamp", mRequestTimestamp)
         params.put("api_key", apiKey)
 
-        var stringToSign = Utilities.generateQueryString(endPoint, params)
-        var apiSignature = Utilities.generateApiSignature(stringToSign, secret)
+        val stringToSign = Utilities.generateQueryString(endPoint, params)
+        val apiSignature = Utilities.generateApiSignature(stringToSign, secret)
         params.put("signature", apiSignature)
         this.execute(callBack)
     }
@@ -46,15 +48,15 @@ class UserWrapper(_context: Context, _apiKey: String, _secret: String, _baseUrl:
     * awards to the user to spend within the economy.
     * */
     fun editUser(uuid: String, name: String, callBack: VolleyRequestCallback) {
-        this.endPoint = OstWrapperSdk.USER_EDIT
+        this.endPoint = Constants.USER_EDIT
         val mRequestTimestamp = Utilities.getTimestamp()
         params.put("name", name)
         params.put("uuid", uuid)
         params.put("request_timestamp", mRequestTimestamp)
         params.put("api_key", apiKey)
 
-        var stringToSign = Utilities.generateQueryString(endPoint, params)
-        var apiSignature = Utilities.generateApiSignature(stringToSign, secret)
+        val stringToSign = Utilities.generateQueryString(endPoint, params)
+        val apiSignature = Utilities.generateApiSignature(stringToSign, secret)
         params.put("signature", apiSignature)
         this.execute(callBack)
     }
@@ -69,7 +71,7 @@ class UserWrapper(_context: Context, _apiKey: String, _secret: String, _baseUrl:
     * */
     @JvmOverloads
     fun getListUser(pageNumber: Int, callBack: VolleyRequestCallback, filter: String = "all", orderBy: String = "creation_time", order: String = "asc") {
-        this.endPoint = OstWrapperSdk.USER_LIST
+        this.endPoint = Constants.USER_LIST
         val mRequestTimestamp = Utilities.getTimestamp()
         params.put("page_no", pageNumber.toString())
         params.put("filter", filter)
@@ -78,8 +80,8 @@ class UserWrapper(_context: Context, _apiKey: String, _secret: String, _baseUrl:
         params.put("request_timestamp", mRequestTimestamp)
         params.put("api_key", apiKey)
 
-        var stringToSign = Utilities.generateQueryString(endPoint, params)
-        var apiSignature = Utilities.generateApiSignature(stringToSign, secret)
+        val stringToSign = Utilities.generateQueryString(endPoint, params)
+        val apiSignature = Utilities.generateApiSignature(stringToSign, secret)
         params.put("signature", apiSignature)
         this.execute(callBack)
     }

@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -178,9 +180,9 @@ public class TransactionsFragment extends Fragment {
     }
 
     private void getTransactionTypes() {
-        ((MainTabActivty) getActivity()).ostWrapperSdk.getTransactionTypeWrapper().getListTransactionType(new VolleyRequestCallback() {
+        ((MainTabActivty) getActivity()).ostWrapperSdk.newTransactionTypeWrapper().getListTransactionType(new VolleyRequestCallback() {
             @Override
-            public void callback(Context context, Boolean isSuccess, String result) {
+            public void callback(@Nullable Context context, boolean isSuccess, @NotNull String result) {
                 Log.d("caposdk", result);
                 if (isSuccess) {
                     try {

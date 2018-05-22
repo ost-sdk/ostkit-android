@@ -24,7 +24,7 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
 //    implementation 'com.github.tinhuit89:OSTKitWrapperSDK:1.0.1'
-    implementation 'com.github.tinhuit89:OSTKitWrapperSDK:1.0.5'
+//    implementation 'com.github.tinhuit89:OSTKitWrapperSDK:1.0.5'
     implementation 'com.orhanobut:dialogplus:1.11@aar'
-//    implementation project(':OSTKitWrapperSDK')
+    implementation project(':OSTKitWrapperSDK')
 }
