@@ -1,15 +1,15 @@
-package capo.ostkit.sdk.wrapper;
+package capo.ostkit.sdk.wrapper
 
 import android.content.Context
+import capo.ostkit.sdk.common.Constants
 import capo.ostkit.sdk.service.VolleyRequestCallback
 import capo.ostkit.sdk.utils.Utilities
 
 /**
- * Created by TinhVC on 5/17/18.
- */
+* Created by TinhVC on 5/17/18.
+*/
 
 class TransactionTypeWrapper(_context: Context, _apiKey: String, _secret: String, _baseUrl: String) : OpenWrapper() {
-
     init {
         this.context = _context
         this.apiKey = _apiKey
@@ -23,7 +23,7 @@ class TransactionTypeWrapper(_context: Context, _apiKey: String, _secret: String
     * other for actions within the application or with the company.
     * */
     fun createTransactionType(name: String, kind: String, currencyType: String, currencyValue: Float, commissionPercent: Float, callBack: VolleyRequestCallback) {
-        this.endPoint = OstWrapperSdk.TRANSACTION_TYPE_CREATE
+        this.endPoint = Constants.TRANSACTION_TYPE_CREATE
         val mRequestTimestamp = Utilities.getTimestamp()
 
         params.put("name", name)
@@ -34,8 +34,8 @@ class TransactionTypeWrapper(_context: Context, _apiKey: String, _secret: String
         params.put("request_timestamp", mRequestTimestamp)
         params.put("api_key", apiKey)
 
-        var stringToSign = Utilities.generateQueryString(endPoint, params)
-        var apiSignature = Utilities.generateApiSignature(stringToSign, secret)
+        val stringToSign = Utilities.generateQueryString(endPoint, params)
+        val apiSignature = Utilities.generateApiSignature(stringToSign, secret)
         params.put("signature", apiSignature)
         this.execute(callBack)
     }
@@ -51,7 +51,7 @@ class TransactionTypeWrapper(_context: Context, _apiKey: String, _secret: String
     * */
     @JvmOverloads
     fun editTransactionType(clientTransactionId: String, callBack: VolleyRequestCallback, name: String = "", kind: String = "", currencyType: String = "", currencyValue: Float = 0f, commissionPercent: Float = 0f) {
-        this.endPoint = OstWrapperSdk.TRANSACTION_TYPE_EDIT
+        this.endPoint = Constants.TRANSACTION_TYPE_EDIT
         val mRequestTimestamp = Utilities.getTimestamp()
 
         params.put("client_transaction_id", clientTransactionId)
@@ -77,8 +77,8 @@ class TransactionTypeWrapper(_context: Context, _apiKey: String, _secret: String
         params.put("request_timestamp", mRequestTimestamp)
         params.put("api_key", apiKey)
 
-        var stringToSign = Utilities.generateQueryString(endPoint, params)
-        var apiSignature = Utilities.generateApiSignature(stringToSign, secret)
+        val stringToSign = Utilities.generateQueryString(endPoint, params)
+        val apiSignature = Utilities.generateApiSignature(stringToSign, secret)
         params.put("signature", apiSignature)
         this.execute(callBack)
     }
@@ -90,13 +90,13 @@ class TransactionTypeWrapper(_context: Context, _apiKey: String, _secret: String
     * price_points, and client_tokens are returned.
     * */
     fun getListTransactionType(callBack: VolleyRequestCallback) {
-        this.endPoint = OstWrapperSdk.TRANSACTION_TYPE_LIST
+        this.endPoint = Constants.TRANSACTION_TYPE_LIST
         val mRequestTimestamp = Utilities.getTimestamp()
         params.put("request_timestamp", mRequestTimestamp)
         params.put("api_key", apiKey)
 
-        var stringToSign = Utilities.generateQueryString(endPoint, params)
-        var apiSignature = Utilities.generateApiSignature(stringToSign, secret)
+        val stringToSign = Utilities.generateQueryString(endPoint, params)
+        val apiSignature = Utilities.generateApiSignature(stringToSign, secret)
         params.put("signature", apiSignature)
         this.execute(callBack)
     }
@@ -107,7 +107,7 @@ class TransactionTypeWrapper(_context: Context, _apiKey: String, _secret: String
     * a defined transaction type between users and/or the company.
     * */
     fun executeTransactionType(fromUuid: String, toUuid: String, transactionKind: String, callBack: VolleyRequestCallback) {
-        this.endPoint = OstWrapperSdk.TRANSACTION_TYPE_EXECUTE
+        this.endPoint = Constants.TRANSACTION_TYPE_EXECUTE
         val mRequestTimestamp = Utilities.getTimestamp()
 
         params.put("from_uuid", fromUuid)
@@ -116,8 +116,8 @@ class TransactionTypeWrapper(_context: Context, _apiKey: String, _secret: String
         params.put("request_timestamp", mRequestTimestamp)
         params.put("api_key", apiKey)
 
-        var stringToSign = Utilities.generateQueryString(endPoint, params)
-        var apiSignature = Utilities.generateApiSignature(stringToSign, secret)
+        val stringToSign = Utilities.generateQueryString(endPoint, params)
+        val apiSignature = Utilities.generateApiSignature(stringToSign, secret)
         params.put("signature", apiSignature)
         this.execute(callBack)
     }
@@ -128,15 +128,15 @@ class TransactionTypeWrapper(_context: Context, _apiKey: String, _secret: String
     * Multiple uuids can be passed in a single request to receive the status of all.
     * */
     fun statusTransactionType(transactionUuids: String, callBack: VolleyRequestCallback) {
-        this.endPoint = OstWrapperSdk.TRANSACTION_TYPE_STATUS
+        this.endPoint = Constants.TRANSACTION_TYPE_STATUS
         val mRequestTimestamp = Utilities.getTimestamp()
 
         params.put("transaction_uuids[]", transactionUuids)
         params.put("request_timestamp", mRequestTimestamp)
         params.put("api_key", apiKey)
 
-        var stringToSign = Utilities.generateQueryString(endPoint, params)
-        var apiSignature = Utilities.generateApiSignature(stringToSign, secret)
+        val stringToSign = Utilities.generateQueryString(endPoint, params)
+        val apiSignature = Utilities.generateApiSignature(stringToSign, secret)
         params.put("signature", apiSignature)
         this.execute(callBack)
     }

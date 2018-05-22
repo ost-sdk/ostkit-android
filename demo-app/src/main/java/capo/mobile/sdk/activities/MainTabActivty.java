@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,6 +28,7 @@ import capo.mobile.sdk.fragments.TransactionsFragment;
 import capo.mobile.sdk.fragments.UsersFragment;
 import capo.mobile.sdk.models.TransactionTypeModel;
 import capo.mobile.sdk.models.UserModel;
+import capo.mobile.sdk.popup.PopupLoading;
 import capo.ostkit.sdk.service.VolleyRequestCallback;
 import capo.ostkit.sdk.wrapper.OstWrapperSdk;
 
@@ -42,6 +45,8 @@ public class MainTabActivty extends AppCompatActivity {
     public OstWrapperSdk ostWrapperSdk;
     public ArrayList<UserModel> listUser = new ArrayList<>();
     public TransactionTypeModel transactionTypeReward = new TransactionTypeModel();
+
+    private PopupLoading popupLoading;
 
     public void setTransactionTypeReward(TransactionTypeModel transactionTypeReward) {
         this.transactionTypeReward = transactionTypeReward;
@@ -64,6 +69,8 @@ public class MainTabActivty extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        popupLoading = new PopupLoading(this, false);
 
         setupTabIcons();
     }
@@ -90,7 +97,7 @@ public class MainTabActivty extends AppCompatActivity {
     }
 
     private void initOstSdk() {
-        ostWrapperSdk = new OstWrapperSdk(MainTabActivty.this, Constants.API_KEY, Constants.SECRET);
+        ostWrapperSdk = new OstWrapperSdk(MainTabActivty.this, Constants.API_KEY, Constants.SECRET, true);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -123,9 +130,10 @@ public class MainTabActivty extends AppCompatActivity {
     }
 
     public void executeTransactionType(String fromUserId, String toUserId, final String nameKind) {
-        ostWrapperSdk.getTransactionTypeWrapper().executeTransactionType(fromUserId, toUserId, nameKind, new VolleyRequestCallback() {
+        popupLoading.showPopup();
+        ostWrapperSdk.newTransactionTypeWrapper().executeTransactionType(fromUserId, toUserId, nameKind, new VolleyRequestCallback() {
             @Override
-            public void callback(Context context, Boolean isSuccess, String result) {
+            public void callback(@Nullable Context context, boolean isSuccess, @NotNull String result) {
                 Log.d(TAG, result);
                 if (isSuccess) {
                     try {
@@ -139,6 +147,7 @@ public class MainTabActivty extends AppCompatActivity {
                         ex.printStackTrace();
                     }
                 }
+                popupLoading.hidePopup();
             }
         });
 

@@ -1,12 +1,13 @@
 package capo.ostkit.sdk.wrapper
 
 import android.content.Context
+import capo.ostkit.sdk.common.Constants
 import capo.ostkit.sdk.service.VolleyRequestCallback
 import capo.ostkit.sdk.utils.Utilities
 
 /**
- * Created by TinhVC on 5/18/18.
- */
+* Created by TinhVC on 5/18/18.
+*/
 
 class AirDropWrapper(_context: Context, _apiKey: String, _secret: String, _baseUrl: String) : OpenWrapper() {
 
@@ -27,7 +28,7 @@ class AirDropWrapper(_context: Context, _apiKey: String, _secret: String, _baseU
     * - user_ids: a comma-separated list of user_ids specifies selected users in the token economy to be air-dropped tokens to.
     * */
     fun executeAirdrop(amount: String, airDropped: Boolean, userIds: String, callBack: VolleyRequestCallback) {
-        this.endPoint = OstWrapperSdk.AIRDROP_EXECUTE
+        this.endPoint = Constants.AIRDROP_EXECUTE
         val mRequestTimestamp = Utilities.getTimestamp()
         params.put("amount", amount)
         params.put("airdropped", airDropped.toString())
@@ -35,8 +36,8 @@ class AirDropWrapper(_context: Context, _apiKey: String, _secret: String, _baseU
         params.put("request_timestamp", mRequestTimestamp)
         params.put("api_key", apiKey)
 
-        var stringToSign = Utilities.generateQueryString(endPoint, params)
-        var apiSignature = Utilities.generateApiSignature(stringToSign, secret)
+        val stringToSign = Utilities.generateQueryString(endPoint, params)
+        val apiSignature = Utilities.generateApiSignature(stringToSign, secret)
         params.put("signature", apiSignature)
         this.execute(callBack)
     }
@@ -50,13 +51,13 @@ class AirDropWrapper(_context: Context, _apiKey: String, _secret: String, _baseU
     * - airDropId: {id} in this API endpoint is the unique identifier of the airdrop that is returned on executing an airdrop.
     * */
     fun retrieveAirdrop(airDropId: String, airDropped: Boolean, userIds: String, callBack: VolleyRequestCallback) {
-        this.endPoint = OstWrapperSdk.AIRDROP_RETRIEVE + airDropId
+        this.endPoint = Constants.AIRDROP_RETRIEVE + airDropId
         val mRequestTimestamp = Utilities.getTimestamp()
         params.put("request_timestamp", mRequestTimestamp)
         params.put("api_key", apiKey)
 
-        var stringToSign = Utilities.generateQueryString(endPoint, params)
-        var apiSignature = Utilities.generateApiSignature(stringToSign, secret)
+        val stringToSign = Utilities.generateQueryString(endPoint, params)
+        val apiSignature = Utilities.generateApiSignature(stringToSign, secret)
         params.put("signature", apiSignature)
         this.execute(callBack)
     }
@@ -75,7 +76,7 @@ class AirDropWrapper(_context: Context, _apiKey: String, _secret: String, _baseU
     * */
     @JvmOverloads
     fun getListAirDrop(pageNumber: Int, callBack: VolleyRequestCallback, orderBy: String = "creation_time", order: String = "asc", limit: Int = 10, optionalFilters: String = "") {
-        this.endPoint = OstWrapperSdk.AIRDROP_LIST
+        this.endPoint = Constants.AIRDROP_LIST
         val mRequestTimestamp = Utilities.getTimestamp()
         params.put("page_no", pageNumber.toString())
         params.put("order_by", orderBy)
@@ -85,8 +86,8 @@ class AirDropWrapper(_context: Context, _apiKey: String, _secret: String, _baseU
         params.put("request_timestamp", mRequestTimestamp)
         params.put("api_key", apiKey)
 
-        var stringToSign = Utilities.generateQueryString(endPoint, params)
-        var apiSignature = Utilities.generateApiSignature(stringToSign, secret)
+        val stringToSign = Utilities.generateQueryString(endPoint, params)
+        val apiSignature = Utilities.generateApiSignature(stringToSign, secret)
         params.put("signature", apiSignature)
         this.execute(callBack)
     }

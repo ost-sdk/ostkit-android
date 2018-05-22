@@ -46,13 +46,13 @@ dependencies {
 ### Initialize SDK
 
 ```java
-OstWrapperSdk ostWrapperSdk = new OstWrapperSdk(context, API_KEY, SECRET);
+OstWrapperSdk ostWrapperSdk = new OstWrapperSdk(context, API_KEY, SECRET, isDebug);
 ```
 
 ### Use SDK function example
 
 ```java
-ostWrapperSdk.getUserWrapper().getListUser(nextPage, new VolleyRequestCallback() {
+ostWrapperSdk.newUserWrapper().getListUser(nextPage, new VolleyRequestCallback() {
             @Override
             public void callback(Context context, Boolean isSuccess, String result) {
                 Log.d("tag", result);

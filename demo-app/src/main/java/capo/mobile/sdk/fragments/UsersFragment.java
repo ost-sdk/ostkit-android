@@ -12,13 +12,13 @@ import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
+import capo.ostkit.sdk.utils.Logger;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
-
 import capo.mobile.sdk.Interface.MultibleCallback;
 import capo.mobile.sdk.R;
 import capo.mobile.sdk.activities.MainTabActivty;
@@ -30,7 +30,6 @@ import capo.mobile.sdk.models.UserModel;
 import capo.mobile.sdk.popup.PopupUser;
 import capo.mobile.sdk.popup.PopupLoading;
 import capo.ostkit.sdk.service.VolleyRequestCallback;
-import capo.ostkit.sdk.utils.Logger;
 
 /**
  * Created by TinhVC on 5/14/18.
@@ -42,6 +41,7 @@ public class UsersFragment extends Fragment implements View.OnClickListener {
         // UsersFragment empty public constructor
     }
 
+    private String TAG = "caposdk";
     private View footerView;
     private ViewGroup viewGroup;
     private View view;
@@ -90,6 +90,7 @@ public class UsersFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onRefresh() {
                 ((MainTabActivty) getActivity()).listUser = new ArrayList<>();
+                removeFooter();
                 isLoading = false;
                 nextPage = 1;
                 setUsersAdapter();
@@ -113,10 +114,9 @@ public class UsersFragment extends Fragment implements View.OnClickListener {
                         @Override
                         public void callback(Object... objects) {
                             popupLoading.showPopup();
-                            ((MainTabActivty) getActivity()).ostWrapperSdk.getUserWrapper().editUser(userModel.getUuid(), objects[1].toString(), new VolleyRequestCallback() {
+                            ((MainTabActivty) getActivity()).ostWrapperSdk.newUserWrapper().editUser(userModel.getUuid(), objects[1].toString(), new VolleyRequestCallback() {
                                 @Override
-                                public void callback(Context context, Boolean isSuccess, String result) {
-//                                Log.d("caposdk", result);
+                                public void callback(@Nullable Context context, boolean isSuccess, @NotNull String result) {
                                     if (isSuccess) {
                                         try {
                                             JSONObject jsonResult = new JSONObject(result);
@@ -136,7 +136,7 @@ public class UsersFragment extends Fragment implements View.OnClickListener {
                                                 Toast.makeText(getActivity(), jsonError.getString("msg"), Toast.LENGTH_SHORT).show();
                                             }
                                         } catch (JSONException ex) {
-                                            Logger.log(ex.getLocalizedMessage());
+                                            Log.d(TAG, ex.getLocalizedMessage());
                                             Toast.makeText(getActivity(), ex.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                                         }
                                     } else {
@@ -159,6 +159,7 @@ public class UsersFragment extends Fragment implements View.OnClickListener {
         });
         lvItem.setAdapter(usersAdapter);
     }
+
 
     private void addListItem(ArrayList<UserModel> listItemAdd) {
         try {
@@ -223,10 +224,9 @@ public class UsersFragment extends Fragment implements View.OnClickListener {
             return;
         }
         isLoading = true;
-        ((MainTabActivty) getActivity()).ostWrapperSdk.getUserWrapper().getListUser(nextPage, new VolleyRequestCallback() {
+        ((MainTabActivty) getActivity()).ostWrapperSdk.newUserWrapper().getListUser(nextPage, new VolleyRequestCallback() {
             @Override
-            public void callback(Context context, Boolean isSuccess, String result) {
-//                Log.d("caposdk", result);
+            public void callback(Context context, boolean isSuccess, String result) {
                 if (isSuccess) {
                     try {
                         JSONObject jsonResult = new JSONObject(result);
@@ -281,10 +281,9 @@ public class UsersFragment extends Fragment implements View.OnClickListener {
                 @Override
                 public void callback(Object... objects) {
                     popupLoading.showPopup();
-                    ((MainTabActivty) getActivity()).ostWrapperSdk.getUserWrapper().createUser(objects[1].toString(), new VolleyRequestCallback() {
+                    ((MainTabActivty) getActivity()).ostWrapperSdk.newUserWrapper().createUser(objects[1].toString(), new VolleyRequestCallback() {
                         @Override
-                        public void callback(Context context, Boolean isSuccess, String result) {
-//                            Log.d("caposdk", result);
+                        public void callback(@Nullable Context context, boolean isSuccess, @NotNull String result) {
                             if (isSuccess) {
                                 try {
                                     JSONObject jsonResult = new JSONObject(result);
@@ -303,7 +302,7 @@ public class UsersFragment extends Fragment implements View.OnClickListener {
                                         Toast.makeText(getActivity(), jsonError.getString("msg"), Toast.LENGTH_SHORT).show();
                                     }
                                 } catch (JSONException ex) {
-                                    Logger.log(ex.getLocalizedMessage());
+                                    Log.d(TAG, ex.getLocalizedMessage());
                                     Toast.makeText(getActivity(), ex.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             } else {
